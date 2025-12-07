@@ -99,8 +99,7 @@ jupyter-client
 jupyter-core
 jupyterlab-pygments
 jupyterlab-widgets
-keras
-keras-nightly
+
 Keras-Preprocessing
 kiwisolver
 lazy_loader
@@ -261,5 +260,6 @@ xlsxwriter
 yarl
 zict
 zipp
+
 
 
