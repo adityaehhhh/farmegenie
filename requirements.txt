@@ -203,7 +203,7 @@ semver
 Send2Trash
 shapely
 six
-sklearn
+
 smart_open
 smmap
 sniffio
@@ -261,3 +261,4 @@ xlsxwriter
 yarl
 zict
 zipp
+
