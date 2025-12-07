@@ -1,0 +1,345 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Agri AI 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-12 00:00+0000\n"
+"PO-Revision-Date: 2025-09-12 00:00+0000\n"
+"Last-Translator: Punjabi Team\n"
+"Language-Team: pa\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Agri AI"
+msgstr "ਅਗਰੀ ਏਆਈ"
+
+msgid "Home"
+msgstr "ਘਰ"
+
+msgid "Disease Detection"
+msgstr "ਰੋਗ ਪਛਾਣ"
+
+msgid "Crop Recommendation"
+msgstr "ਫਸਲ ਸਿਫਾਰਸ਼"
+
+msgid "Yield Prediction"
+msgstr "ਫ਼ਸਲ ਦੀ ਉਪਜ ਭਵਿੱਖਬਾਣੀ"
+
+msgid "Price Recommendation"
+msgstr "ਕੀਮਤ ਸਿਫਾਰਸ਼"
+
+msgid "Crop Health"
+msgstr "ਫ਼ਸਲ ਸਿਹਤ"
+
+msgid "Dashboard"
+msgstr "ਡੈਸ਼ਬੋਰਡ"
+
+msgid "Language"
+msgstr "ਭਾਸ਼ਾ"
+
+msgid "Login"
+msgstr "ਲੌਗਇਨ"
+
+msgid "Register"
+msgstr "ਰਜਿਸਟਰ"
+
+msgid "Logout"
+msgstr "ਲੌਗਆਊਟ"
+
+msgid "Welcome to Agri AI - Smart Farming Solutions"
+msgstr "ਅਗਰੀ ਏਆਈ ਵਿੱਚ ਸਵਾਗਤ ਹੈ - ਸਮਾਰਟ ਖੇਤੀਬਾੜੀ ਹੱਲ"
+
+msgid "Empowering farmers with AI-driven insights for sustainable agriculture"
+msgstr "ਸਤਤ ਖੇਤੀਬਾੜੀ ਲਈ ਏਆਈ-ਚਾਲਿਤ ਗਿਆਨ ਨਾਲ ਕਿਸਾਨਾਂ ਨੂੰ ਸਸ਼ਕਤ ਕਰਨਾ"
+
+msgid "Revolutionize Your Farm with AI"
+msgstr "ਏਆਈ ਨਾਲ ਆਪਣੇ ਖੇਤ ਨੂੰ ਕ੍ਰਾਂਤੀਕਾਰੀ ਬਣਾਓ"
+
+msgid "Discover how intelligent tools can optimize yields, detect diseases early, and predict market trends for a prosperous harvest."
+msgstr "ਜਾਣੋ ਕਿ ਬੁੱਧੀਮਾਨ ਉਪਕਰਣ ਕਿਵੇਂ ਉਪਜ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾ ਸਕਦੇ ਹਨ, ਬਿਮਾਰੀਆਂ ਨੂੰ ਜਲਦੀ ਪਛਾਣ ਸਕਦੇ ਹਨ, ਅਤੇ ਖੁਸ਼ਹਾਲ ਫਸਲ ਲਈ ਬਜ਼ਾਰ ਰੁਝਾਨਾਂ ਦੀ ਭਵਿੱਖਬਾਣੀ ਕਰ ਸਕਦੇ ਹਨ।"
+
+msgid "Current Weather Conditions"
+msgstr "ਮੌਜੂਦਾ ਮੌਸਮ ਹਾਲਾਤ"
+
+msgid "Temperature"
+msgstr "ਤਾਪਮਾਨ"
+
+msgid "Humidity"
+msgstr "ਨਮੀ"
+
+msgid "Condition"
+msgstr "ਹਾਲਤ"
+
+msgid "Rain Alert!"
+msgstr "ਵਰ੍ਹਾ ਚੇਤਾਵਨੀ!"
+
+msgid "Protect your crops and postpone outdoor activities."
+msgstr "ਆਪਣੀਆਂ ਫ਼ਸਲਾਂ ਦੀ ਰਾਖੀ ਕਰੋ ਅਤੇ ਬਾਹਰੀ ਗਤੀਵਿਧੀਆਂ ਨੂੰ ਮੁਲਤਵੀ ਕਰੋ।"
+
+msgid "Perfect Weather for Farming!"
+msgstr "ਖੇਤੀਬਾੜੀ ਲਈ ਪਰਫੈਕਟ ਮੌਸਮ!"
+
+msgid "Our AI-Powered Features"
+msgstr "ਸਾਡੀਆਂ ਏਆਈ-ਸਮਰੱਥ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ"
+
+msgid "Upload crop images to detect diseases using advanced AI models"
+msgstr "ਉੱਨਤ ਏਆਈ ਮਾਡਲਾਂ ਦੀ ਵਰਤੋਂ ਨਾਲ ਫ਼ਸਲ ਤਸਵੀਰਾਂ ਅਪਲੋਡ ਕਰਕੇ ਬਿਮਾਰੀਆਂ ਪਛਾਣੋ"
+
+msgid "Get personalized crop recommendations based on soil and climate data"
+msgstr "ਮਿੱਟੀ ਅਤੇ ਜਲਵਾਯੂ ਡਾਟੇ 'ਤੇ ਅਧਾਰਤ ਨਿੱਜੀ ਫ਼ਸਲ ਸਿਫ਼ਾਰਸ਼ਾਂ ਪ੍ਰਾਪਤ ਕਰੋ"
+
+msgid "Predict crop yields to plan your farming strategy effectively"
+msgstr "ਆਪਣੀ ਖੇਤੀਬਾੜੀ ਰਣਨੀਤੀ ਨੂੰ ਪ੍ਰਭਾਵੀ ਢੰਗ ਨਾਲ ਯੋਜਨਾਬੱਧ ਕਰਨ ਲਈ ਫ਼ਸਲ ਉਪਜ ਦੀ ਭਵਿੱਖਬਾਣੀ ਕਰੋ"
+
+msgid "Get market price insights for better selling decisions"
+msgstr "ਬਿਹਤਰ ਵਿਕਰੀ ਫ਼ੈਸਲਿਆਂ ਲਈ ਬਜ਼ਾਰ ਕੀਮਤ ਗਿਆਨ ਪ੍ਰਾਪਤ ਕਰੋ"
+
+msgid "Monitor crop health and get pesticide usage recommendations"
+msgstr "ਫ਼ਸਲ ਸਿਹਤ ਦੀ ਨਿਗਰਾਨੀ ਕਰੋ ਅਤੇ ਕੀਟਨਾਸ਼ਕ ਵਰਤੋਂ ਸਿਫ਼ਾਰਸ਼ਾਂ ਪ੍ਰਾਪਤ ਕਰੋ"
+
+msgid "View your prediction history and generate reports"
+msgstr "ਆਪਣੇ ਭਵਿੱਖਬਾਣੀ ਇਤਿਹਾਸ ਨੂੰ ਵੇਖੋ ਅਤੇ ਰਿਪੋਰਟਾਂ ਜਨਰੇਟ ਕਰੋ"
+
+msgid "Try Now"
+msgstr "ਹੁਣ ਅਜ਼ਮਾਓ"
+
+msgid "View Dashboard"
+msgstr "ਡੈਸ਼ਬੋਰਡ ਵੇਖੋ"
+
+msgid "Crop Disease Detection"
+msgstr "ਫ਼ਸਲ ਬਿਮਾਰੀ ਪਛਾਣ"
+
+msgid "In recent times, drastic climate changes and lack of immunity in crops has caused substantial increase in growth of crop diseases. This causes large scale demolition of crops, decreases cultivation and eventually leads to financial loss of farmers. Due to rapid growth in variety of diseases, identification and treatment of the disease is of major importance."
+msgstr "ਹਾਲ ਹੀ ਵਿੱਚ, ਨਾਟਕੀ ਜਲਵਾਯੂ ਬਦਲਾਅ ਅਤੇ ਫ਼ਸਲਾਂ ਵਿੱਚ ਰੋਗ ਪ੍ਰਤੀਰੋਧਕ ਤਾਕਤ ਦੀ ਘਾਟ ਨੇ ਫ਼ਸਲ ਬਿਮਾਰੀਆਂ ਦੇ ਵਿਕਾਸ ਵਿੱਚ ਭਾਰੀ ਵਾਧਾ ਕੀਤਾ ਹੈ। ਇਹ ਫ਼ਸਲਾਂ ਦੇ ਵਿਆਪਕ ਵਿਨਾਸ ਦਾ ਕਾਰਨ ਬਣਦਾ ਹੈ, ਖੇਤੀ ਨੂੰ ਘਟਾਉਂਦਾ ਹੈ ਅਤੇ ਅੰਤ ਵਿੱਚ ਕਿਸਾਨਾਂ ਨੂੰ ਵਿੱਤੀ ਨੁਕਸਾਨ ਪਹੁੰਚਾਉਂਦਾ ਹੈ। ਬਿਮਾਰੀਆਂ ਦੀ ਵਿਭਿੰਨਤਾ ਵਿੱਚ ਤੇਜ਼ ਵਾਧੇ ਕਾਰਨ, ਬਿਮਾਰੀ ਦੀ ਪਛਾਣ ਅਤੇ ਇਲਾਜ ਮਹੱਤਵਪੂਰਨ ਹੈ।"
+
+msgid "Upload Crop Image"
+msgstr "ਫ਼ਸਲ ਤਸਵੀਰ ਅਪਲੋਡ ਕਰੋ"
+
+msgid "Detect Disease"
+msgstr "ਬਿਮਾਰੀ ਪਛਾਣੋ"
+
+msgid "Analysis Result"
+msgstr "ਵਿਸ਼ਲੇਸ਼ਣ ਨਤੀਜਾ"
+
+msgid "Crop"
+msgstr "ਫ਼ਸਲ"
+
+msgid "Condition"
+msgstr "ਹਾਲਤ"
+
+msgid "Crop Recommendation System"
+msgstr "ਫ਼ਸਲ ਸਿਫ਼ਾਰਸ਼ ਪ੍ਰਣਾਲੀ"
+
+msgid "Crop recommendation is one of the most important aspects of precision agriculture. Crop recommendations are based on a number of factors. Precision agriculture seeks to define these criteria on a site-by-site basis in order to address crop selection issues."
+msgstr "ਫ਼ਸਲ ਸਿਫ਼ਾਰਸ਼ ਸ਼ੁੱਧ ਖੇਤੀਬਾੜੀ ਦਾ ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਪਹਿਲੂ ਹੈ। ਫ਼ਸਲ ਸਿਫ਼ਾਰਸ਼ਾਂ ਕਈ ਕਾਰਕਾਂ 'ਤੇ ਅਧਾਰਤ ਹਨ। ਸ਼ੁੱਧ ਖੇਤੀਬਾੜੀ ਫ਼ਸਲ ਚੋਣ ਮੁੱਦਿਆਂ ਨੂੰ ਹੱਲ ਕਰਨ ਲਈ ਸਾਈਟ-ਦਰ-ਸਾਈਟ ਆਧਾਰ 'ਤੇ ਇਹਨਾਂ ਮਾਪਦੰਡਾਂ ਨੂੰ ਪਰਿਭਾਸ਼ਿਤ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰਦੀ ਹੈ।"
+
+msgid "Nitrogen (N)"
+msgstr "ਨਾਈਟ੍ਰੋਜਨ (ਐੱਨ)"
+
+msgid "Phosphorus (P)"
+msgstr "ਫਾਸਫੋਰਸ (ਪੀ)"
+
+msgid "Potassium (K)"
+msgstr "ਪੋਟਾਸ਼ੀਅਮ (ਕੇ)"
+
+msgid "Temperature (°C)"
+msgstr "ਤਾਪਮਾਨ (°ਸੀ)"
+
+msgid "Humidity (%)"
+msgstr "ਨਮੀ (%)"
+
+msgid "pH Level"
+msgstr "ਪੀਐੱਚ ਪੱਧਰ"
+
+msgid "Rainfall (mm)"
+msgstr "ਵਰਸ਼ਾ (ਮਿਲੀਮੀਟਰ)"
+
+msgid "Get Recommendation"
+msgstr "ਸਿਫ਼ਾਰਸ਼ ਪ੍ਰਾਪਤ ਕਰੋ"
+
+msgid "Recommendation"
+msgstr "ਸਿਫ਼ਾਰਸ਼"
+
+msgid "Crop Yield Prediction"
+msgstr "ਫ਼ਸਲ ਉਪਜ ਭਵਿੱਖਬਾਣੀ"
+
+msgid "Forecasting or predicting the crop yield well ahead of its harvest time would assist the strategists and farmers for taking suitable measures for selling and storage."
+msgstr "ਫ਼ਸਲ ਉਪਜ ਨੂੰ ਉਸ ਦੇ ਕਟਾਈ ਸਮੇਂ ਤੋਂ ਬਹੁਤ ਪਹਿਲਾਂ ਭਵਿੱਖਬਾਣੀ ਕਰਨਾ ਰਣਨੀਤੀਕਾਰਾਂ ਅਤੇ ਕਿਸਾਨਾਂ ਨੂੰ ਵਿਕਰੀ ਅਤੇ ਭੰਡਾਰਣ ਲਈ ਢੰਗ ਵਾਲੇ ਉਪਾਅ ਲੈਣ ਵਿੱਚ ਮਦਦ ਕਰੇਗਾ।"
+
+msgid "State"
+msgstr "ਰਾਜ"
+
+msgid "District"
+msgstr "ਜ਼ਿਲ੍ਹਾ"
+
+msgid "Crop Year"
+msgstr "ਫ਼ਸਲ ਸਾਲ"
+
+msgid "Season"
+msgstr "ਮੌਸਮ"
+
+msgid "Crop"
+msgstr "ਫ਼ਸਲ"
+
+msgid "Area (sq m)"
+msgstr "क्षेत्र (ਵਰਗ ਮੀਟਰ)"
+
+msgid "Predict Yield"
+msgstr "ਉਪਜ ਭਵਿੱਖਬਾਣੀ"
+
+msgid "Prediction"
+msgstr "ਭਵਿੱਖਬਾਣੀ"
+
+msgid "Crop Price Recommendation"
+msgstr "ਫ਼ਸਲ ਕੀਮਤ ਸਿਫ਼ਾਰਸ਼"
+
+msgid "Crop price forecasting techniques are essential because they enable supply chain planners and government bodies to take appropriate actions by estimating market factors such as demand and supply."
+msgstr "ਫ਼ਸਲ ਕੀਮਤ ਭਵਿੱਖਬਾਣੀ ਤਕਨੀਕਾਂ ਜ਼ਰੂਰੀ ਹਨ ਕਿਉਂਕਿ ਉਹ ਸਪਲਾਈ ਚੇਨ ਯੋਜਨਾਕਾਰਾਂ ਅਤੇ ਸਰਕਾਰੀ ਏਜੰਸੀਆਂ ਨੂੰ ਮੰਗ ਅਤੇ ਆਪੂਰਤੀ ਵਰਗੇ ਬਜ਼ਾਰ ਕਾਰਕਾਂ ਦੇ ਅਨੁਮਾਨ ਨਾਲ ਢੰਗ ਵਾਲੀ ਕਾਰਵਾਈ ਕਰਨ ਲਈ ਸक्षਮ ਬਣਾਉਂਦੀਆਂ ਹਨ।"
+
+msgid "Market"
+msgstr "ਬਜ਼ਾਰ"
+
+msgid "Commodity"
+msgstr "ਵਸਤੂ"
+
+msgid "Variety"
+msgstr "ਕਿਸਮ"
+
+msgid "Get Price Prediction"
+msgstr "ਕੀਮਤ ਭਵਿੱਖਬਾਣੀ ਪ੍ਰਾਪਤ ਕਰੋ"
+
+msgid "Crop Health Analysis"
+msgstr "ਫ਼ਸਲ ਸਿਹਤ ਵਿਸ਼ਲੇਸ਼ਣ"
+
+msgid "A good harvest is ensured by several factors such as availability of water, soil fertility, protecting crops from rodents, timely use of pesticides & other useful chemicals and nature. While a lot of these factors are difficult to control for, the amount and frequency of pesticides is something the farmer can control."
+msgstr "ਇੱਕ ਵਧੀਆ ਫ਼ਸਲ ਨੂੰ ਪਾਣੀ ਦੀ ਉਪਲਬਧਤਾ, ਮਿੱਟੀ ਦੀ ਉਰਵਰਤਾ, ਚੂਹਿਆਂ ਤੋਂ ਫ਼ਸਲਾਂ ਦੀ ਰਾਖੀ, ਸਮੇਂ ਸਿਰ ਕੀਟਨਾਸ਼ਕਾਂ ਅਤੇ ਹੋਰ ਉਪਯੋਗੀ ਰਸਾਇਣਾਂ ਦੀ ਵਰਤੋਂ ਅਤੇ ਕੁਦਰਤ ਵਰਗੇ ਕਈ ਕਾਰਕਾਂ ਦੁਆਰਾ ਯਕੀਨੀ ਬਣਾਇਆ ਜਾਂਦਾ ਹੈ। ਜਦੋਂ ਕਿ ਇਹਨਾਂ ਕਾਰਕਾਂ ਵਿੱਚੋਂ ਬਹੁਤ ਸਾਰੇ ਨੂੰ ਕੰਟਰੋਲ ਕਰਨਾ ਮੁਸ਼ਕਲ ਹੈ, ਕੀਟਨਾਸ਼ਕਾਂ ਦੀ ਮਾਤਰਾ ਅਤੇ ਆਵ੍ਰਿਤੀ ਕਿਸਾਨ ਨੂੰ ਕੰਟਰੋਲ ਕਰ ਸਕਦਾ ਹੈ।"
+
+msgid "Estimated Insects Count per sq m"
+msgstr "ਪ੍ਰਤੀ ਵਰਗ ਮੀਟਰ ਅੰਦਾਜ਼ਨ ਕੀੜੇ ਗਿਣਤੀ"
+
+msgid "Crop Type"
+msgstr "ਫ਼ਸਲ ਕਿਸਮ"
+
+msgid "Soil Type"
+msgstr "ਮਿੱਟੀ ਦੀ ਕਿਸਮ"
+
+msgid "Pesticide Use Category"
+msgstr "ਕੀਟਨਾਸ਼ਕ ਵਰਤੋਂ ਸ਼੍ਰੇਣੀ"
+
+msgid "Number Doses per Week"
+msgstr "ਹਫ਼ਤੇ ਵਿੱਚ ਖੁਰਾਕਾਂ ਦੀ ਗਿਣਤੀ"
+
+msgid "Number of Weeks Used"
+msgstr "ਵਰਤੇ ਗਏ ਹਫ਼ਤਿਆਂ ਦੀ ਗਿਣਤੀ"
+
+msgid "Number of Weeks Quit"
+msgstr "ਛੱਡੇ ਹੋਏ ਹਫ਼ਤਿਆਂ ਦੀ ਗਿਣਤੀ"
+
+msgid "Predict Health"
+msgstr "ਸਿਹਤ ਭਵਿੱਖਬਾਣੀ"
+
+msgid "Health Status"
+msgstr "ਸਿਹਤ ਹਾਲਤ"
+
+msgid "Welcome, %s!"
+msgstr "%s ਦਾ ਸਵਾਗਤ ਹੈ!"
+
+msgid "Your AI Farming Journey"
+msgstr "ਤੁਹਾਡੀ ਏਆਈ ਖੇਤੀ ਜ਼ਾਂਚ"
+
+msgid "Download Report (PDF)"
+msgstr "ਰਿਪੋਰਟ ਡਾਊਨਲੋਡ ਕਰੋ (ਪੀਡੀਐੱਫ)"
+
+msgid "Export CSV"
+msgstr "ਸੀਐੱਸਵੀ ਨਿਰਯਾਤ"
+
+msgid "Type"
+msgstr "ਕਿਸਮ"
+
+msgid "Inputs"
+msgstr "ਸਿਪਾਰਸ਼"
+
+msgid "Output"
+msgstr "ਆਊਟਪੁਟ"
+
+msgid "Timestamp"
+msgstr "ਸਮਾਂ-ਚਿਹਨ"
+
+msgid "No predictions yet. Start exploring!"
+msgstr "ਹੋਰ ਕੋਈ ਭਵਿੱਖਬਾਣੀ ਨਹੀਂ। ਖੋਜ ਸ਼ੁਰੂ ਕਰੋ!"
+
+msgid "Email"
+msgstr "ਈਮੇਲ"
+
+msgid "Password"
+msgstr "ਪਾਸਵਰਡ"
+
+msgid "Username"
+msgstr "ਯੂਜ਼ਰਨੇਮ"
+
+msgid "Confirm Password"
+msgstr "ਪਾਸਵਰਡ ਨੂੰ ਪੁਸ਼ਟੀ ਕਰੋ"
+
+msgid "Don't have an account?"
+msgstr "ਖਾਤਾ ਨਹੀਂ ਹੈ?"
+
+msgid "Register here"
+msgstr "ਇੱਥੇ ਰਜਿਸਟਰ ਕਰੋ"
+
+msgid "Already registered?"
+msgstr "ਪਹਿਲਾਂ ਹੀ ਰਜਿਸਟਰ ਹੋ?"
+
+msgid "Login here"
+msgstr "ਇੱਥੇ ਲੌਗਇਨ ਕਰੋ"
+
+msgid "Email already registered"
+msgstr "ਈਮੇਲ ਪਹਿਲਾਂ ਹੀ ਰਜਿਸਟਰ ਹੋਈ ਹੈ"
+
+msgid "Registration successful! Please log in."
+msgstr "ਰਜਿਸਟ੍ਰੇਸ਼ਨ ਸਫਲ! ਕਿਰਪਾ ਕਰਕੇ ਲੌਗਇਨ ਕਰੋ।"
+
+msgid "Invalid email or password"
+msgstr "ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ"
+
+msgid "Agri AI Prediction Report"
+msgstr "ਅਗਰੀ ਏਆਈ ਭਵਿੱਖਬਾਣੀ ਰਿਪੋਰਟ"
+
+msgid "Toggle Weather Theme"
+msgstr "ਮੌਸਮ ਥੀਮ ਟੌਗਲ ਕਰੋ"
+
+msgid "Toggle theme"
+msgstr "ਥੀਮ ਟੌਗਲ ਕਰੋ"
+
+msgid "Agri AI - Empowering Smart Agriculture"
+msgstr "ਅਗਰੀ ਏਆਈ - ਸਮਾਰਟ ਖੇਤੀਬਾੜੀ ਨੂੰ ਸਸ਼ਕਤ ਕਰਨਾ"
+
+msgid "Leveraging AI technology to revolutionize farming practices and improve crop yields"
+msgstr "ਖੇਤੀ ਅਭਿਆਸਾਂ ਨੂੰ ਕ੍ਰਾਂਤੀਕਾਰੀ ਬਣਾਉਣ ਅਤੇ ਫ਼ਸਲ ਉਪਜ ਵਿੱਚ ਸੁਧਾਰ ਲਈ ਏਆਈ ਤਕਨਾਲੋਜੀ ਦਾ ਲਾਭ ਲੈਣਾ"
+
+msgid "Agri AI. All rights reserved."
+msgstr "ਅਗਰੀ ਏਆਈ। ਸਾਰੇ ਅਧਿਕਾਰ ਰਾਖਵੇ ਹਨ।"
+
+msgid "Alive"
+msgstr "ਜੀਵੰਤ"
+
+msgid "Possible Damage due to other causes"
+msgstr "ਹੋਰ ਕਾਰਨਾਂ ਕਾਰਨ ਸੰਭਾਵਿਤ ਨੁਕਸਾਨ"
+
+msgid "Damage due to Pesticides"
+msgstr "ਕੀਟਨਾਸ਼ਕਾਂ ਕਾਰਨ ਨੁਕਸਾਨ"
+
+msgid "Recommended Crop"
+msgstr "ਸਿਫ਼ਾਰਸ਼ੀ ਫ਼ਸਲ"
+
+msgid "Estimated Yield"
+msgstr "ਅੰਦਾਜ਼ਨ ਉਪਜ"
+
+msgid "Suggested Price"
+msgstr "ਸੁਝਾਇਆ ਕੀਮਤ"
+
+msgid "Shop"
+msgstr "ਦੁਕਾਨ" 
+
+msgid "Post Your Crop"
+msgstr "ਆਪਣੀ ਫ਼ਸਲ ਪੋਸਟ ਕਰੋ" 
