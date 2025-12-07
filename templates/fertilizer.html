@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Fertilizer Recommendation - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2><i class="fas fa-flask"></i> {{ _('Fertilizer Recommendation') }}</h2>
+    <p>{{ _('Get smart suggestions on what nutrients (N, P, K) your soil needs for healthy crop growth.') }}</p>
+</div>
+
+<div class="form-container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+    <label class="form-label">{{ form.cropname.label }}</label>
+    {{ form.cropname(class_="form-select") }}
+</div>
+        <div class="col-md-4 mb-3">
+                <label class="form-label">{{ form.nitrogen.label }}</label>
+                {{ form.nitrogen(class_="form-control") }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">{{ form.phosphorous.label }}</label>
+                {{ form.phosphorous(class_="form-control") }}
+            </div>
+            <div class="col-md-4 mb-3">
+                <label class="form-label">{{ form.pottasium.label }}</label>
+                {{ form.pottasium(class_="form-control") }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.ph.label }}</label>
+                {{ form.ph(class_="form-control") }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.soil_moisture.label }}</label>
+                {{ form.soil_moisture(class_="form-control") }}
+            </div>
+
+        </div>
+        {{ form.submit(class_="btn btn-primary") }}
+    </form>
+
+    {% if recommendation %}
+    <div class="alert alert-success mt-4 shadow-sm">
+        <h5>{{ _('Recommendation') }}:</h5>
+        <div class="result-display">{{ recommendation|safe }}</div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

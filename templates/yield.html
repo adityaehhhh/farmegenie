@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Yield Prediction - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2><i class="fas fa-seedling"></i> {{ _('Crop Yield Prediction') }}</h2>
+    <p>{{ _('Forecasting or predicting the crop yield well ahead of its harvest time would assist the strategists and farmers for taking suitable measures for selling and storage.') }}</p>
+</div>
+
+<div class="form-container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.state.label.text }}</label>
+                {{ form.state(class_="form-select") }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.district.label.text }}</label>
+                {{ form.district(class_="form-select") }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.crop_year.label.text }}</label>
+                {{ form.crop_year(class_="form-control", value=2014) }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.season.label.text }}</label>
+                {{ form.season(class_="form-select") }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.crop.label.text }}</label>
+                {{ form.crop(class_="form-select") }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.area.label.text }}</label>
+                {{ form.area(class_="form-control", value=1000.0) }}
+            </div>
+        </div>
+        {{ form.submit(class_="btn btn-primary") }}
+    </form>
+    {% if result %}
+    <div class="alert alert-success mt-4">
+        <h5>{{ _('Prediction') }}:</h5>
+        <div class="result-display">{{ result|safe }}</div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

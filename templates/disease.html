@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Disease Detection - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header text-center">
+    <h2><i class="fas fa-search"></i> {{ _('Crop Disease Detection') }}</h2>
+    <p>{{ _('Upload a clear plant image to detect crop diseases using our AI-powered system. Get detailed analysis, treatment options, and prevention tips.') }}</p>
+</div>
+
+<div class="main-container">
+    {% if not result %}
+    <!-- Upload Form -->
+    <div class="disease-card">
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="upload-area">
+                <i class="fas fa-cloud-upload-alt fa-3x text-success mb-3"></i>
+                <h3>{{ _('Upload Plant Image') }}</h3>
+                <p class="text-muted">{{ _('Choose a clear image showing affected parts of the plant.') }}</p>
+                {{ form.image(class="form-control", accept="image/*", onchange="previewImage(this)") }}
+            </div>
+            <div class="text-center mt-3">
+                <img id="preview" style="display:none; max-width: 300px; border-radius: 10px; margin: 10px;">
+            </div>
+            <div class="action-buttons">
+                <button type="submit" class="btn btn-success btn-action">
+                    <i class="fas fa-microscope"></i> {{ _('Analyze Plant') }}
+                </button>
+            </div>
+        </form>
+    </div>
+    </br>
+    </br>
+
+    <!-- Quick Tips -->
+    <div class="quick-tips">
+        <h5><i class="fas fa-lightbulb tip-icon"></i> {{ _('Photography Tips for Best Results:') }}</h5>
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> {{ _('Use natural lighting') }}</li>
+                    <li><i class="fas fa-check text-success"></i> {{ _('Focus on affected areas') }}</li>
+                    <li><i class="fas fa-check text-success"></i> {{ _('Include leaves and stems') }}</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li><i class="fas fa-check text-success"></i> {{ _('Avoid blurry images') }}</li>
+                    <li><i class="fas fa-check text-success"></i> {{ _('Capture multiple angles') }}</li>
+                    <li><i class="fas fa-check text-success"></i> {{ _('Clean camera lens before shooting') }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <!-- Results Display -->
+    {% if disease_info and disease_info.get('type') == 'healthy' %}
+    <!-- Healthy Plant -->
+    <div class="healthy-plant">
+        <div class="healthy-icon">🌱</div>
+        <h2>{{ _('Congratulations!') }}</h2>
+        <h4>{{ _('Your') }} {{ crop|title }} {{ _('plant appears healthy!') }}</h4>
+        <div class="confidence-meter">
+            <div class="confidence-fill" style="width: '{{ (confidence * 100)|round }}%'"></div>
+            <div class="confidence-text">{{ (confidence * 100)|round }}% {{ _('Confidence') }}</div>
+        </div>
+        <div class="mt-3">
+            <h5>{{ _('Keep up the great work!') }} 🎉</h5>
+            <ul class="info-list text-left" style="max-width: 500px; margin: 0 auto;">
+                {% for rec in disease_info.recommendations %}
+                <li>{{ rec }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    {% else %}
+    <!-- Disease Detected -->
+    <div class="disease-card">
+        <div class="card-header">
+            <h2><i class="fas fa-bug"></i> {{ _('Disease Detection Results') }}</h2>
+            <div class="mt-2">
+                <span class="badge bg-light text-dark fs-6">{{ crop|title }}</span>
+                <span class="badge bg-warning text-dark fs-6">{{ condition|title }}</span>
+            </div>
+            {% if disease_info %}
+            <div class="mt-3">
+                {% if 'critical' in disease_info.get('severity_level', '').lower() %}
+                <span class="severity-badge severity-critical">{{ disease_info.severity_level }}</span>
+                {% elif 'high' in disease_info.get('severity_level', '').lower() %}
+                <span class="severity-badge severity-high">{{ disease_info.severity_level }}</span>
+                {% elif 'moderate' in disease_info.get('severity_level', '').lower() %}
+                <span class="severity-badge severity-moderate">{{ disease_info.severity_level }}</span>
+                {% else %}
+                <span class="severity-badge severity-low">{{ disease_info.get('severity_level', 'Assessment needed') }}</span>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Confidence -->
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-chart-line"></i>
+                {{ _('Detection Confidence') }}
+            </div>
+            <div class="confidence-meter">
+                <div class="confidence-fill" style="width: '{{ (confidence * 100)|round }}%'"></div>
+                <div class="confidence-text">{{ (confidence * 100)|round }}%</div>
+            </div>
+        </div>
+
+        {% if disease_info %}
+        <!-- Disease Description -->
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-info-circle"></i>
+                {{ _('Disease Description') }}
+            </div>
+            <p>{{ disease_info.get('description', _('No description available.')) }}</p>
+        </div>
+
+        <!-- Symptoms -->
+        {% if disease_info.get('symptoms') %}
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-eye"></i> {{ _('Symptoms') }}
+            </div>
+            <ul class="info-list">
+                {% for symptom in disease_info.symptoms %}
+                <li>{{ symptom }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Prevention -->
+        {% if disease_info.get('prevention') %}
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-shield-alt"></i> {{ _('Prevention') }}
+            </div>
+            <ul class="info-list">
+                {% for prevention in disease_info.prevention %}
+                <li>{{ prevention }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Treatment -->
+        {% if disease_info.get('treatment') %}
+        <div class="info-section">
+            <div class="section-title">
+                <i class="fas fa-medkit"></i> {{ _('Treatment') }}
+            </div>
+            <ul class="info-list">
+                {% for treatment in disease_info.treatment %}
+                <li>{{ treatment }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+        {% endif %}
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-success btn-action" onclick="window.print()">
+                <i class="fas fa-print"></i> {{ _('Print Report') }}
+            </button>
+            <a href="{{ url_for('disease') }}" class="btn btn-primary btn-action">
+                <i class="fas fa-redo"></i> {{ _('Analyze Another') }}
+            </a>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+
+<script>
+    function previewImage(input) {
+        const preview = document.getElementById('preview');
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+{% endblock %}

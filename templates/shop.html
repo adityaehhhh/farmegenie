@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Shop - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2><i class="fas fa-store"></i> {{ _('Shop') }}</h2>
+    <p>{{ _('Buy/Sell crops, products, and connect with partners') }}</p>
+</div>
+
+<!-- Post New Button -->
+<div class="row mb-3">
+    {% if current_user.role == Role.FARMER or current_user.role == Role.FARM_IND %}
+    <div class="col-md-3">
+        <a href="{{ url_for('shop_post' if current_user.role == Role.FARMER else 'shop_product') }}" 
+           class="btn btn-primary w-100">
+           {{ _('Post New') }} {{ 'Crop' if current_user.role == Role.FARMER else 'Product' }}
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Crop Posts -->
+{% if current_user.role != Role.FARM_IND %}
+<h3>{{ _('Available Crops') }}</h3>
+<div class="row">
+    {% if posts %}
+        {% for post in posts %}
+        <div class="col-md-4">
+            <div class="shop-card">
+                <h5>{{ post.title }}</h5>
+                <p><strong>{{ _('Quality') }}:</strong> {{ post.quality }}</p>
+                <p><strong>{{ _('Quantity') }}:</strong> {{ post.quantity }}</p>
+                <p><strong>{{ _('Rate') }}:</strong> ₹{{ post.rate }}</p>
+                <p><strong>{{ _('Soil Nutrients') }}:</strong> {{ post.soil_nutrients }}</p>
+
+                <!-- COMPANY: Can send queries + chat -->
+                {% if current_user.role == Role.COMPANY %}
+                    <form method="POST" action="{{ url_for('send_query', post_id=post.id) }}">
+                        {{ message_form.hidden_tag() }}
+                        <div class="mb-2">
+                            {{ message_form.content(class_="form-control", placeholder=_('Send query...')) }}
+                        </div>
+                        {{ message_form.submit(class_="btn btn-query") }}
+                    </form>
+                    <a href="{{ url_for('shop_chat', chat_id=post.id) }}" class="btn btn-outline-primary mt-2">
+                        {{ _('Chat') }}
+                    </a>
+                {% endif %}
+
+                <!-- FARMER: View Chat and Remove Own Crop -->
+                {% if current_user.role == Role.FARMER and current_user.id == post.farmer_id %}
+                    <a href="{{ url_for('shop_chat', chat_id=post.id) }}" 
+                       class="btn btn-outline-success mt-2">
+                        {{ _('View Chat') }}
+                    </a>
+                    <form method="POST" action="{{ url_for('delete_crop_post', post_id=post.id) }}" style="display:inline;">
+                        {{ message_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-danger btn-sm mt-2">
+                            {{ _('Remove Crop') }}
+                        </button>
+                    </form>
+
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted">{{ _('No crops available at the moment.') }}</p>
+    {% endif %}
+</div>
+{% endif %}
+
+<!-- Products -->
+{% if current_user.role != Role.COMPANY %}
+<h3 class="mt-5">{{ _('Available Products') }}</h3>
+<div class="row">
+    {% if products %}
+        {% for product in products %}
+        <div class="col-md-4">
+            <div class="shop-card">
+                <h5>{{ product.name }}</h5>
+                <p><strong>{{ _('Type') }}:</strong> {{ product.type }}</p>
+                <p><strong>{{ _('Price') }}:</strong> ₹{{ product.price }}</p>
+                <p><strong>{{ _('Available') }}:</strong> {{ product.quantity_available }}</p>
+
+                <!-- FARMER: Purchase Products -->
+                {% if current_user.role == Role.FARMER %}
+                    <a href="{{ url_for('shop_purchase', product_id=product.id) }}" 
+                       class="btn btn-primary">
+                        {{ _('Purchase') }}
+                    </a>
+                {% endif %}
+
+                <!-- FARM_IND: Remove Own Product -->
+                {% if current_user.role == Role.FARM_IND and current_user.id == product.farm_ind_id %}
+                    <form method="POST" action="{{ url_for('delete_product', product_id=product.id) }}" style="display:inline;">
+                        {{ message_form.hidden_tag() }}
+                        <button type="submit" class="btn btn-danger btn-sm mt-2">
+                            {{ _('Remove Product') }}
+                        </button>
+                    </form>
+
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-muted">{{ _('No products available at the moment.') }}</p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

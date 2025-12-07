@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Register - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="section-header">
+            <h2><i class="fas fa-user-plus"></i> {{ _('Register') }}</h2>
+        </div>
+        <div class="form-container">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+                <div class="mb-3">
+                    {{ form.username.label(class_="form-label") }}
+                    {{ form.username(class_="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.email.label(class_="form-label") }}
+                    {{ form.email(class_="form-control") }}
+                </div>
+                <div class="mb-3">
+                    {{ form.password.label(class_="form-label") }}
+                    {{ form.password(class_="form-control") }}
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">{{ _('Role') }}</label>
+                    <select name="role" class="form-select" required>
+                    <option value="Farmer">Farmer</option>
+                    <option value="Company">Company</option>
+                    <option value="Farm_Ind">Farm_Ind</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    {{ form.password_confirm.label(class_="form-label") }}
+                    {{ form.password_confirm(class_="form-control") }}
+                </div>
+                {{ form.submit(class_="btn btn-primary w-100") }}
+            </form>
+            <p class="text-center mt-3">{{ _('Already registered?') }} <a href="{{ url_for('login') }}">{{ _('Login here') }}</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

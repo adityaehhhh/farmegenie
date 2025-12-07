@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Dashboard - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2><i class="fas fa-tachometer-alt"></i> {{ _('Welcome') }}, {{ current_user.username }}!</h2>
+    <p>{{ _('Your AI Farming Journey') }}</p>
+</div>
+
+<div class="row mb-4">
+    <div class="col">
+        <a href="{{ url_for('report') }}" class="btn btn-success me-2">
+            <i class="fas fa-file-pdf"></i> {{ _('Download Report (PDF)') }}
+        </a>
+
+        <!-- Safe data attribute to store predictions as JSON -->
+        <button id="export-btn" data-predictions='{{ predictions|tojson|safe }}' class="btn btn-outline-success">
+            <i class="fas fa-download"></i> {{ _('Export CSV') }}
+        </button>
+    </div>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{ _('Type') }}</th>
+                <th>{{ _('Inputs') }}</th>
+                <th>{{ _('Output') }}</th>
+                <th>{{ _('Timestamp') }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pred in predictions %}
+            <tr>
+                <td>
+                    {% if pred.type == 'fertilizer' %}
+                        🌱 {{ _('Fertilizer') }}
+                    {% elif pred.type == 'disease' %}
+                        🧬 {{ _('Disease') }}
+                    {% elif pred.type == 'recommend' %}
+                        🌾 {{ _('Crop Recommendation') }}
+                    {% elif pred.type == 'price' %}
+                        💰 {{ _('Price') }}
+                    {% elif pred.type == 'health' %}
+                        ❤️ {{ _('Health') }}
+                    {% else %}
+                        {{ pred.type.title() }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% set data = pred.inputs | tojson | safe %}
+                    <small>
+                        {% if pred.type == 'fertilizer' %}
+                            {{ _('Crop') }}: {{ pred.inputs.crop if pred.inputs.crop else 'N/A' }},
+                            N: {{ pred.inputs.N }},
+                            P: {{ pred.inputs.P }},
+                            K: {{ pred.inputs.K }}
+                        {% else %}
+                            {{ pred.inputs[:50] }}...
+                        {% endif %}
+                    </small>
+                </td>
+                <td>{{ pred.output|safe }}</td>
+                <td>{{ pred.timestamp }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" class="text-center">{{ _('No predictions yet. Start exploring!') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+document.getElementById('export-btn').addEventListener('click', function() {
+    const predictions = JSON.parse(this.getAttribute('data-predictions'));
+    
+    let csv = 'Type,Inputs,Output,Timestamp\n';
+    predictions.forEach(p => {
+        const safeInputs = p.inputs.replace(/"/g, '""');  // Escape double quotes in inputs
+        const safeOutput = (p.output || '').replace(/"/g, '""');  // Escape double quotes in output
+        csv += `${p.type},"${safeInputs}","${safeOutput}",${p.timestamp}\n`;
+    });
+
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'predictions.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+});
+</script>
+{% endblock %}

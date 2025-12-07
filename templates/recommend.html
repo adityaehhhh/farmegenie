@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Crop Recommendation - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2><i class="fas fa-chart-line"></i> {{ _('Crop Recommendation System') }}</h2>
+    <p>{{ _('Crop recommendation is one of the most important aspects of precision agriculture. Crop recommendations are based on a number of factors. Precision agriculture seeks to define these criteria on a site-by-site basis in order to address crop selection issues.') }}</p>
+</div>
+
+<div class="form-container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.N.label.text }}</label>
+                {{ form.N(class_="form-control", value=50) }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.P.label.text }}</label>
+                {{ form.P(class_="form-control", value=50) }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.K.label.text }}</label>
+                {{ form.K(class_="form-control", value=50) }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.temp.label.text }}</label>
+                {{ form.temp(class_="form-control", value=25.0) }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.humidity.label.text }}</label>
+                {{ form.humidity(class_="form-control", value=60.0) }}
+            </div>
+            <div class="col-md-6 mb-3">
+                <label class="form-label">{{ form.ph.label.text }}</label>
+                {{ form.ph(class_="form-control", value=6.5) }}
+            </div>
+            <div class="col-md-12 mb-3">
+                <label class="form-label">{{ form.rainfall.label.text }}</label>
+                {{ form.rainfall(class_="form-control", value=100.0) }}
+            </div>
+        </div>
+        {{ form.submit(class_="btn btn-primary") }}
+    </form>
+    {% if result %}
+    <div class="alert alert-success mt-4">
+        <h5>{{ _('Recommendation') }}:</h5>
+        <div class="result-display">{{ result|safe }}</div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

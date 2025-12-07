@@ -1,0 +1,311 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="chatbot-container d-flex flex-column flex-lg-row gap-3 mt-4">
+  <!-- Sidebar -->
+  <div class="sidebar p-3">
+    <button class="btn btn-primary w-100 mb-3" onclick="newChat()">+ New Chat</button>
+    <div class="chat-history-title mt-2 mb-2">Chat History</div>
+    <div id="chatList"></div>
+  </div>
+
+  <!-- Chat main area -->
+  <div class="main flex-fill d-flex flex-column">
+    <div class="chat-box flex-fill p-3" id="chatBox">
+      <div class="chat-entry bot">Hello! Start a new conversation or continue below.</div>
+    </div>
+    <div class="input-area d-flex p-3 border-top">
+      <input type="text" id="userInput" class="form-control me-2" placeholder="Send a message..." />
+      <button class="btn btn-success me-2" id="sendBtn">Send</button>
+      <button class="btn btn-secondary" id="voiceBtn">🎤</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Layout & Theme Matching */
+.chatbot-container {
+  height: 75vh;
+  gap: 1rem;
+  display: flex;
+  overflow: hidden; /* Prevent layout squeezing */
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: var(--secondary-teal);
+  border-radius: var(--border-radius);
+  color: white;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-shrink: 0; /* Sidebar won't shrink */
+  padding-bottom: 1rem;
+}
+
+.chat-history-title {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.chat-link {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.6rem;
+  margin: 0.25rem 0.25rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: 0.18s;
+  color: white;
+}
+.chat-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Chat main area */
+.main {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Chat area grows to fill space */
+  overflow: hidden;
+}
+
+.chat-box {
+  flex: 1;
+  overflow-y: auto; /* Scroll when messages are long */
+  background: var(--light-pearl);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.5rem;
+}
+
+.chat-entry {
+  max-width: 75%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  word-wrap: break-word;
+  font-size: 1rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.user {
+  align-self: flex-end;
+  background: var(--primary-emerald);
+  color: white;
+  border-bottom-right-radius: 0;
+}
+
+.bot {
+  align-self: flex-start;
+  background: var(--neutral-slate);
+  color: var(--light-pearl);
+  border-bottom-left-radius: 0;
+}
+
+.typing {
+  font-style: italic;
+  color: var(--neutral-slate);
+}
+
+/* Input area */
+.input-area input {
+  flex: 1;
+  border-radius: var(--border-radius);
+  border: 1px solid #E2E8F0;
+  padding: 0.75rem;
+}
+
+.input-area button {
+  border-radius: var(--border-radius);
+  font-weight: 600;
+}
+
+/* Animations & responsive */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 992px) {
+  .chatbot-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+  }
+}
+</style>
+
+<script>
+const STORAGE_KEY = 'farmgenie_chats_v1';
+let chats = [];
+let currentChatId = null;
+
+const chatBox = document.getElementById('chatBox');
+const chatList = document.getElementById('chatList');
+const input = document.getElementById('userInput');
+const sendBtn = document.getElementById('sendBtn');
+const voiceBtn = document.getElementById('voiceBtn');
+
+sendBtn.addEventListener('click', sendMessage);
+input.addEventListener('keydown', e => { if(e.key==='Enter') sendMessage(); });
+
+function loadChats() {
+  try { chats = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch(e){ chats = []; }
+  renderChatList();
+  if(chats.length) loadChat(chats[0].id); else newChat();
+}
+
+function saveChats() { localStorage.setItem(STORAGE_KEY, JSON.stringify(chats)); }
+
+function renderChatList() {
+  chatList.innerHTML = '';
+  chats.forEach(c=>{
+    const el = document.createElement('div');
+    el.className = 'chat-link';
+    el.textContent = c.title || ('Chat '+c.id);
+    el.onclick = ()=>loadChat(c.id);
+    chatList.appendChild(el);
+  });
+}
+
+function newChat() {
+  const id = Date.now();
+  const title = 'Chat ' + (chats.length + 1);
+  const chat = {id, title, messages: []};
+  chats.unshift(chat);
+  saveChats();
+  renderChatList();
+  loadChat(id);
+}
+
+function loadChat(id) {
+  currentChatId = id;
+  const chat = chats.find(c=>c.id===id);
+  chatBox.innerHTML='';
+  if(!chat) return;
+  chat.messages.forEach(msg=>{
+    const senderClass = msg.role==='user'?'user':'bot';
+    appendMessage(msg.content, senderClass, false);
+  });
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function appendMessage(content, sender='bot', save=true){
+  const entry=document.createElement('div');
+  entry.className=`chat-entry ${sender}`;
+  entry.innerHTML=content;
+  chatBox.appendChild(entry);
+  chatBox.scrollTop=chatBox.scrollHeight;
+
+  if(save && currentChatId){
+    const chat=chats.find(c=>c.id===currentChatId);
+    if(chat){
+      chat.messages.push({role: sender==='user'?'user':'assistant', content: content.replace(/<[^>]*>?/gm,'')});
+      if(chat.title && chat.title.startsWith('Chat ') && chat.messages.length===1){
+        chat.title = chat.messages[0].content.slice(0,30)+(chat.messages[0].content.length>30?'...':'');
+      }
+      saveChats();
+      renderChatList();
+    }
+  }
+}
+
+async function sendMessage() {
+  const text=input.value.trim();
+  if(!text) return;
+  appendMessage(text,'user',true);
+  input.value='';
+
+  const typingEl=document.createElement('div');
+  typingEl.className='chat-entry bot';
+  typingEl.innerHTML='<span class="typing">Bot is typing...</span>';
+  chatBox.appendChild(typingEl);
+  chatBox.scrollTop=chatBox.scrollHeight;
+
+  const chat = chats.find(c=>c.id===currentChatId);
+  const lastMessages = (chat?chat.messages:[]).slice(-10);
+  const payloadMessages = lastMessages.map(m=>({role: m.role, content: m.content}));
+
+  try{
+    const res=await fetch("/api/chat", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({messages: payloadMessages})
+    });
+    if(typingEl.parentNode) typingEl.remove();
+
+    if(!res.ok){
+      appendMessage("Error: server returned "+res.status,'bot',true);
+      return;
+    }
+
+    const data = await res.json();
+    const botText = data.response||"Sorry, I didn't get that.";
+    const lang = (data.language||'en').slice(0,2);
+
+    appendMessage(botText,'bot',true);
+    speakText(lang, botText);
+
+  }catch(err){
+    if(typingEl.parentNode) typingEl.remove();
+    appendMessage("Error contacting server: "+err.message,'bot',true);
+  }
+}
+
+let recognition=null;
+if('SpeechRecognition' in window || 'webkitSpeechRecognition' in window){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SR();
+  recognition.interimResults=false;
+  recognition.maxAlternatives=1;
+  recognition.lang=navigator.language||'en-US';
+  recognition.onresult = event => {
+    const transcript = event.results[0][0].transcript;
+    input.value=transcript;
+    sendMessage();
+  };
+  recognition.onerror = e => { console.warn('Speech recognition error', e); alert('Voice input error: '+(e.error||e.message)); };
+  recognition.onend = ()=>{ voiceBtn.classList.remove('recording'); };
+} else { voiceBtn.disabled=true; voiceBtn.title='Speech recognition not supported'; }
+
+voiceBtn.addEventListener('click', ()=>{
+  if(!recognition) return;
+  try{ recognition.start(); voiceBtn.classList.add('recording'); }catch(e){ console.warn(e); }
+});
+
+function speakText(lang,text){
+  if(!('speechSynthesis' in window)) return;
+  let voices = window.speechSynthesis.getVoices();
+  if(!voices.length) window.speechSynthesis.onvoiceschanged=()=>{ voices=window.speechSynthesis.getVoices(); doSpeak(voices); };
+  else doSpeak(voices);
+
+  function doSpeak(voicesList){
+    const utter=new SpeechSynthesisUtterance(text);
+    let v=voicesList.find(v=>v.lang && v.lang.toLowerCase().startsWith(lang.toLowerCase()));
+    if(!v) v=voicesList.find(v=>v.lang && v.lang.split('-')[0]===lang.split('-')[0]);
+    if(!v) v=voicesList.find(v=>v.lang && v.lang.startsWith('en'))||voicesList[0];
+    if(v) utter.voice=v;
+    utter.lang=lang;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  }
+}
+
+loadChats();
+</script>
+
+{% endblock %}

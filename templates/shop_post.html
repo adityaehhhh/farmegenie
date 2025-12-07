@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Post Crop - Agri AI') }}{% endblock %}
+
+{% block content %}
+<div class="section-header">
+    <h2><i class="fas fa-plus"></i> {{ _('Post Your Crop') }}</h2>
+</div>
+
+<div class="form-container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="mb-3">
+            {{ form.title.label(class_="form-label") }}
+            {{ form.title(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.description.label(class_="form-label") }}
+            {{ form.description(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.soil_nutrients.label(class_="form-label") }}
+            {{ form.soil_nutrients(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.quality.label(class_="form-label") }}
+            {{ form.quality(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.quantity.label(class_="form-label") }}
+            {{ form.quantity(class_="form-control") }}
+        </div>
+        <div class="mb-3">
+            {{ form.rate.label(class_="form-label") }}
+            {{ form.rate(class_="form-control") }}
+        </div>
+        {{ form.submit(class_="btn btn-primary") }}
+    </form>
+</div>
+
+<!-- Show validation errors -->
+{% for field, errors in form.errors.items() %}
+    <div class="alert alert-danger mt-3">
+        <strong>{{ field }}:</strong> {{ errors[0] }}
+    </div>
+{% endfor %}
+
+{% endblock %}

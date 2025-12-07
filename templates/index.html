@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="section-header">
+    <h1>{{ _('Welcome to Farm Genie - Smart Farming Solutions') }}</h1>
+    <p>{{ _('Empowering farmers with AI-driven insights for sustainable agriculture') }}</p>
+</div>
+
+<!-- Hero Video -->
+<div class="hero-video">
+    <video autoplay muted loop playsinline>
+        <source src="{{ url_for('static', filename='videos/hero.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay-text">
+        <h2>{{ _('Revolutionize Your Farm with AI') }}</h2>
+        <p>{{ _('Discover how intelligent tools can optimize yields, detect diseases early, and predict market trends for a prosperous harvest.') }}</p>
+    </div>
+</div>
+
+<!-- Weather Section -->
+<div class="row mb-4">
+    {% if weather %}
+    <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-soft">
+            <div class="card-body">
+                <i class="fas fa-thermometer-half fa-2x text-primary mb-2"></i>
+                <h5 class="card-title">{{ _('Temperature') }}</h5>
+                <p class="card-text fs-3">{{ weather.main.temp }}°C</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-soft">
+            <div class="card-body">
+                <i class="fas fa-tint fa-2x text-primary mb-2"></i>
+                <h5 class="card-title">{{ _('Humidity') }}</h5>
+                <p class="card-text fs-3">{{ weather.main.humidity }}%</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+        <div class="card text-center shadow-soft">
+            <div class="card-body">
+                <i class="fas fa-cloud fa-2x text-primary mb-2"></i>
+                <h5 class="card-title">{{ _('Condition') }}</h5>
+                <p class="card-text fs-3">{{ weather.weather[0].description.title() }}</p>
+            </div>
+        </div>
+    </div>
+    {% if 'rain' in weather.weather[0].main.lower() or 'drizzle' in weather.weather[0].main.lower() or 'thunderstorm' in weather.weather[0].main.lower() %}
+    <div class="col-12">
+        <div class="alert alert-warning text-center animate__animated animate__pulse">
+            <h4><i class="fas fa-cloud-rain"></i> {{ _('Rain Alert!') }}</h4>
+            <p>{{ _('Protect your crops and postpone outdoor activities.') }}</p>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12">
+        <div class="alert alert-success text-center">
+            <h4><i class="fas fa-sun"></i> {{ _('Perfect Weather for Farming!') }}</h4>
+        </div>
+    </div>
+    {% endif %}
+    {% endif %}
+</div>
+
+<!-- Features Grid -->
+<section class="features-grid">
+    <div class="feature-card">
+        <i class="fas fa-search feature-icon"></i>
+        <h3>{{ _('Disease Detection') }}</h3>
+        <p>{{ _('Upload crop images to detect diseases using advanced AI models.') }}</p>
+        <a href="{{ url_for('disease') }}" class="btn btn-primary mt-3">{{ _('Try Now') }}</a>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-chart-line feature-icon"></i>
+        <h3>{{ _('Crop Recommendation') }}</h3>
+        <p>{{ _('Get personalized crop recommendations based on soil and climate data.') }}</p>
+        <a href="{{ url_for('recommend') }}" class="btn btn-primary mt-3">{{ _('Try Now') }}</a>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-seedling feature-icon"></i>
+        <h3>{{ _('Fertilizer Recommendation') }}</h3>
+        <p>{{ _('Predict crop yields to plan your farming strategy effectively.') }}</p>
+        <a href="{{ url_for('fertilizer') }}" class="btn btn-primary mt-3">{{ _('Try Now') }}</a>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-dollar-sign feature-icon"></i>
+        <h3>{{ _('Price Recommendation') }}</h3>
+        <p>{{ _('Get market price insights for better selling decisions.') }}</p>
+        <a href="{{ url_for('price') }}" class="btn btn-primary mt-3">{{ _('Try Now') }}</a>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-heartbeat feature-icon"></i>
+        <h3>{{ _('Crop Health') }}</h3>
+        <p>{{ _('Monitor crop health and get pesticide usage recommendations.') }}</p>
+        <a href="{{ url_for('health') }}" class="btn btn-primary mt-3">{{ _('Try Now') }}</a>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-tachometer-alt feature-icon"></i>
+        <h3>{{ _('Dashboard') }}</h3>
+        <p>{{ _('View your prediction history and generate reports.') }}</p>
+        <a href="{{ url_for('dashboard') }}" class="btn btn-primary mt-3">{{ _('View Dashboard') }}</a>
+    </div>
+</section>
+{% endblock %}
