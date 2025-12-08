@@ -1,8 +1,8 @@
-# 🌱 SmartAgri - Intelligent Agriculture Management Platform
+# 🌱 FarmGenie - Intelligent Agriculture Management Platform
 
 ## **Overview**
 
-SmartAgri is an AI-powered agricultural web platform designed to **empower farmers** and agricultural businesses with **data-driven decision-making tools**. It addresses common farming challenges such as crop diseases, poor crop planning, fertilizer misuse, unpredictable crop prices, and lack of access to relevant information. By leveraging **machine learning, computer vision, and real-time data**, SmartAgri provides actionable insights to **increase crop yield, reduce losses, and improve sustainability**.
+FarmGenie is an AI-powered agricultural web platform designed to **empower farmers** and agricultural businesses with **data-driven decision-making tools**. It addresses common farming challenges such as crop diseases, poor crop planning, fertilizer misuse, unpredictable crop prices, and lack of access to relevant information. By leveraging **machine learning, computer vision, and real-time data**, SmartAgri provides actionable insights to **increase crop yield, reduce losses, and improve sustainability**.
 
 ---
 
@@ -120,7 +120,7 @@ SmartAgri provides a **comprehensive platform** to tackle the above challenges u
 
 ```bash
 git clone https://github.com/your-username/smartagri.git
-cd smartagri
+cd farmegenie
 ```
 
 ### **2. Install Dependencies:**
@@ -168,12 +168,6 @@ We welcome contributions from developers, researchers, and agricultural experts.
 
 ---
 
-## **License**
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## **Contact**
 
 For queries or support, reach out to us at: **[support@smartagri.com](mailto:adityatiwari8008@gmail.com)**
@@ -181,3 +175,4 @@ For queries or support, reach out to us at: **[support@smartagri.com](mailto:adi
 ---
 
 ### **Empowering Farmers, Enhancing Agriculture, Sustaining the Future.** 🌾
+
